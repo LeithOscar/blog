@@ -1,3 +1,12 @@
-<p>
-  blog works!
-</p>
+<div>
+  last news
+
+  <section id="lastestSection">
+
+    <div  *ngFor='let latestPost of recentPost'> 
+
+       {{latestPost.title}}
+    </div>
+
+  </section>
+</div>
