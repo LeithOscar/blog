@@ -11,19 +11,24 @@ import { Component, OnInit } from '@angular/core';
 //class define our component
 export class BlogComponent  implements OnInit {
 
-  recentPost = [
-    {
-      postId:'1',
-      title:'First post',
-      autor:'leith',
-      date :'01/03/2017',
-      topics:[
-        'angular 2',
-        'typeScript'
-      ]
-    }
+  title = "Blog";
+  recentPost = [{
+    title: 'Example title post 2',
+    autor: 'Leith Oscar',
+    date: '01/05=2017',
+    topic: ['TypeScript', 'Angular2'],
+    id: 1
+  },
+  {
+    title: 'Example title post 2',
+    autor: 'Leith Oscar',
+    date: '01/05/2017',
+    topic: ['TypeScript', 'Angular2'],
+    id:2
+
+  }
   ];
-  
+
   constructor() { }
 
   ngOnInit() {
