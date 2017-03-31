@@ -1,38 +1,39 @@
 //imports use other modules
 import { Component, OnInit } from '@angular/core';
+import { MLabService } from '../../m-lab.service';
+
+import 'rxjs/Rx';
 
 //metadata, describe the component
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  styleUrls: ['./blog.component.css'],
+  providers: [MLabService]
 })
 
 //class define our component
-export class BlogComponent  implements OnInit {
+export class BlogComponent implements OnInit {
 
   title = "Blog";
-  recentPost = [{
-    title: 'Example title post 2',
-    autor: 'Leith Oscar',
-    date: '01/05=2017',
-    topic: ['TypeScript', 'Angular2'],
-    id: 1
-  },
-  {
-    title: 'Example title post 2',
-    autor: 'Leith Oscar',
-    date: '01/05/2017',
-    topic: ['TypeScript', 'Angular2'],
-    id:2
+  recentPost = [ ];
 
+  latestPost= [];
+  mode = 'Observable';
+  errorMessage: string;
+
+  constructor(private mlabService: MLabService) {
   }
-  ];
 
-  constructor() { }
+  ngOnInit() { this.getRecentPost(); }
 
-  ngOnInit() {
+  getRecentPost() {
+    this.mlabService.getAllPost()
+      .subscribe(
+      posts => this.recentPost = posts,
+      error => this.errorMessage = <any>error);
   }
+
 
 }
 
