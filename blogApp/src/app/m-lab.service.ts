@@ -9,27 +9,34 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class MLabService {
 
+  urlPosts = "https://api.mlab.com/api/1/databases/blog/collections/posts?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7";
+  urlLogin = "https://api.mlab.com/api/1/databases/blog/collections/posts?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7";
+  urlRegister = "https://api.mlab.com/api/1/databases/blog/collections/posts?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7";
+
   constructor(private http: Http) {
   }
 
 
   public getAllPost(): any {
 
-    let url = "https://api.mlab.com/api/1/databases/blog/collections/posts?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7";
-    return this.http.get(url).map((data: Response) => data.json() || {})
+
+    return this.http.get(this.urlPosts).map((data: Response) => data.json() || {})
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));;
   }
 
   public login(username: string, pass: string): any {
-    console.log(">login", username, pass);
+
+    return this.http.get(this.urlLogin).map((data: Response) => data.json() || {})
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));;
   }
 
   public logout(username: string, pass: string): any {
-    console.log(">logout", username, pass, );
+   //do something
   }
 
   public register(username: string, lastName: string, pass: string): any {
-    console.log(">register", username, lastName, pass);
+      return this.http.get(this.urlRegister).map((data: Response) => data.json() || {})
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));;
   }
 
 }
