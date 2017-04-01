@@ -35,7 +35,10 @@ export class BlogComponent implements OnInit {
   }
 
 
+  editPost(_e:MouseEvent, i: any)
+  {
+     let id = i;
+  }
 }
 
 
-/*all views must be a comopnent associated*/
