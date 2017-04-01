@@ -16,7 +16,7 @@ export class PostComponent implements OnInit {
 
   post = {};
   private sub: any;
-  id: number;
+  id: any;
   errorMessage = "internal error";
 
   ngOnInit() {
@@ -28,13 +28,21 @@ export class PostComponent implements OnInit {
   //private methods
   getReadPost() {
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
-      this.mlabService.getById(this.id)
+      this.id = params['id']; // (+) converts string 'id' to a number
+      this.mlabService.getAllPost()
         .subscribe(
-        posts => this.post = posts[0],
+        posts => this.post = this.getItem(posts, this.id),
         error => this.errorMessage = <any>error);
     });
 
+
+  }
+
+  getItem(items:any, id:any):any {
+
+    var results = items.filter(function (obj) { return obj._id.$oid === id; });
+    
+    return results[0];
 
   }
 

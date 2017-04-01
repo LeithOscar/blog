@@ -35,7 +35,7 @@
         <!-- Post Content -->
         <p class="lead">{{recent.content}}
         </p>
-        <a routerLinkActive="active" [routerLink]="['/post', { id: '{{recent._id.$oid}}' }]">continue reading...</a>
+        <a routerLinkActive="active" [routerLink]="['/post', { id: recent._id.$oid }]">continue reading...</a>
 
         <hr>
 
