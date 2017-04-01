@@ -1,11 +1,14 @@
- <div id="menu" class="navbar navbar-default">
-      <div class="navbar-header">
-          <button class="btn btn-success navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<div id="menu" class="navbar navbar-default">
+    <div class="navbar-header">
+        <button class="btn btn-success navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="glyphicon glyphicon-chevron-down"></span>
           </button>
-      <div id="logo">
-          <a class="" href="#"><h3>Developer Site</h3></a>
+        <div id="logo">
+            <a class="" href="#">
+                <h3>Developer Site</h3>
+            </a>
         </div>
+
      </div>
       <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -29,10 +32,48 @@
   <p>This is some text.</p> 
 
 </div>
+
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav active"><a href=".">Home</a>
+            </li>
+            <li class="nav"><a routerLink="/blog" routerLinkActive="active"> blog</a>
+            </li>
+            <li class="nav"><a href="login.html">login</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<h1>
+    <!--{{title}} -->
 </h1>
 
 <div class="container">
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Code Source</h1>
+            <p>CodeSource is the most popular place for developers from Woltters Kluwer, we would like to share our experiencies
+                about our projects on the web.</p>
+        </div>
+    </div>
 
+    <router-outlet></router-outlet>
 
-  <router-outlet></router-outlet>
+</div>
+
+<div class="container">
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <img style="height: 100px;" src="./assets/TypeScript.png">
+                <img style="height: 100px;" src="./assets/angular21.png">
+            </div>
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2017</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
 </div>
