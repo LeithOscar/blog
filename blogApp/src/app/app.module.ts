@@ -5,17 +5,20 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog/blog.component';
 import { Routes,RouterModule  } from '@angular/router';
+import { PostComponent } from './blog/post/post.component';
 
 
 const appRoutes: Routes = [
-  { path: 'blog',   component: BlogComponent }
+  { path: 'blog',   component: BlogComponent },
+  { path: 'post',      component: PostComponent }
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogComponent
+    BlogComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

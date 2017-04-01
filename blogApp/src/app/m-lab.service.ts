@@ -24,6 +24,13 @@ export class MLabService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));;
   }
 
+   public getById(id:number): any {
+
+
+    return this.http.get(this.urlPosts).map((data: Response) => data.json() || {})
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));;
+  }
+
   public login(username: string, pass: string): any {
 
     return this.http.get(this.urlLogin).map((data: Response) => data.json() || {})

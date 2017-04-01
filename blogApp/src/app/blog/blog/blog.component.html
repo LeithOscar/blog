@@ -1,45 +1,45 @@
- <!-- Blog Post -->
+<!-- Blog Post -->
 
-  <div class="container">
+<div class="container">
 
-    <div *ngFor="let recent of recentPost">
-      <div class="row">
+  <div *ngFor="let recent of recentPost">
+    <div class="row">
 
-        <!-- Blog Post Content Column -->
-        <div class="col-lg-8">
+      <!-- Blog Post Content Column -->
+      <div class="col-lg-8">
 
-          <!-- Blog Post -->
+        <!-- Blog Post -->
 
-          <!-- Title -->
-          <h1>{{recent.title}}</h1>
+        <!-- Title -->
+        <h1>{{recent.title}}</h1>
 
-          <!-- Author -->
-          <p class="lead">
-            by <a href="#">{{recent.autor}}</a>
-          </p>
-     
-          <hr>
+        <!-- Author -->
+        <p class="lead">
+          by <a href="#">{{recent.autor}}</a>
+        </p>
 
-          <!-- Date/Time -->
-          <p>
-            <span class="glyphicon glyphicon-time"></span> Posted on {{recent.date}}
+        <hr>
 
-          </p>
+        <!-- Date/Time -->
+        <p>
+          <span class="glyphicon glyphicon-time"></span> Posted on {{recent.date}}
 
-          <hr>
+        </p>
 
-          <!-- Preview Image -->
+        <hr>
 
-          <hr>
+        <!-- Preview Image -->
 
-          <!-- Post Content -->
-          <p class="lead">{{recent.content}}
-          </p>
+        <hr>
 
-          <button (click)="editPost($event, i)">Edit</button>
-          <hr>
-         
-          <!-- Comments Form 
+        <!-- Post Content -->
+        <p class="lead">{{recent.content}}
+        </p>
+        <a routerLinkActive="active" [routerLink]="['/post', { id: '{{recent._id.$oid}}' }]">continue reading...</a>
+
+        <hr>
+
+        <!-- Comments Form 
           <div class="well">
             <h4>Leave a Comment:</h4>
             <form role="form">
@@ -49,10 +49,10 @@
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>-->
-          <!--<hr>-->
-          <!-- Posted Comments -->
+        <!--<hr>-->
+        <!-- Posted Comments -->
 
-          <!-- Comment 
+        <!-- Comment 
           <div class="media">
             <a class="pull-left" href="#">
               <img class="media-object" src="http://placehold.it/64x64" alt="">
@@ -68,30 +68,29 @@
           </div>
 
         </div>-->
-        </div>
-        <!-- /.row -->
       </div>
+      <!-- /.row -->
     </div>
-    <!-- end latedt post -->
+  </div>
+  <!-- end latedt post -->
 
-    <!-- Blog Search Well -->
-    <div class="well">
-      <h4>Blog Search</h4>
-      <div class="input-group">
-        <input type="text" class="form-control">
-        <span class="input-group-btn">
+  <!-- Blog Search Well -->
+  <div class="well">
+    <h4>Blog Search</h4>
+    <div class="input-group">
+      <input type="text" class="form-control">
+      <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <span class="glyphicon glyphicon-search"></span>
-        </button>
-        </span>
-      </div>
-      <!-- /.input-group -->
+      </button>
+      </span>
     </div>
-    <!-- Footer -->
-  
-
-
-
-    <!-- /.container -->
+    <!-- /.input-group -->
   </div>
+  <!-- Footer -->
 
+
+
+
+  <!-- /.container -->
+</div>
