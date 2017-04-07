@@ -14,7 +14,9 @@ export class PostComponent implements OnInit {
 
   constructor(private mlabService: MLabService, private route: ActivatedRoute) { }
 
-  post = {};
+  post = {
+  };
+
   private sub: any;
   id: any;
   errorMessage = "internal error";
@@ -22,6 +24,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
 
     this.getReadPost();
+
   }
 
 

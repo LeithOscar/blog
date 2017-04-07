@@ -1,69 +1,59 @@
-   <div class="row">
+<div class="row">
 
-        <!-- Blog Post Content Column -->
-        <div class="col-lg-8">
+  <!-- Blog Post Content Column -->
+  <div class="col-lg-8">
 
-          <!-- Blog Post -->
+    <!-- Blog Post -->
 
-          <!-- Title -->
-          <h1>{{post.title}}</h1>
+    <!-- Title -->
+    <h1>{{post.title}}</h1>
 
-          <!-- Author -->
-          <p class="lead">
-            by <a href="#">{{post.autor}}</a>
-          </p>
-     
-          <hr>
+    <!-- Author -->
+    <p class="lead">
+      by <a href="#">{{post.autor}}</a>
+    </p>
+    <hr>
+    <!-- Date/Time -->
+    <p>
+      <span class="glyphicon glyphicon-time"></span> Posted on {{post.date}}
+    </p>
 
-          <!-- Date/Time -->
-          <p>
-            <span class="glyphicon glyphicon-time"></span> Posted on {{post.date}}
+    <hr>
+    <!-- Post Content -->
+    <p class="lead">{{post.content}}
+    </p>
 
-          </p>
+    <button class="btn btn-defautl" (click)="editPost()">edit</button>
+    <hr>
 
-          <hr>
+    <!-- Posted Comments -->
+    <div class="media"  *ngFor="let comment of post.commentsPost">
+      <a class="pull-left profileImaget" href="#" >
+        <img class="media-objec profileImage" src="./assets/profile.png" alt="">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">{{comment.author}}
+          <small>{{comment.date}}</small>
+        </h4>
+          {{comment.content}}
+      </div>
 
-          <!-- Preview Image -->
+       <button class="btn btn-defautl buttonComment" (click)="editComment()">edit</button>
+    </div>
+    <hr>
 
-          <hr>
-
-          <!-- Post Content -->
-          <p class="lead">{{post.content}}
-          </p>
-
-          <button (click)="editPost()">edit</button>
-          <button >add comment</button>
-          <hr>
-         
-          <!-- Comments Form 
+    <!-- Comments Form -->
           <div class="well">
-            <h4>Leave a Comment:</h4>
+            <h4>Deja tu comentario:</h4>
             <form role="form">
               <div class="form-group">
                 <textarea class="form-control" rows="3"></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-          </div>-->
-          <!--<hr>-->
-          <!-- Posted Comments -->
-
-          <!-- Comment 
-          <div class="media">
-            <a class="pull-left" href="#">
-              <img class="media-object" src="http://placehold.it/64x64" alt="">
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading">Start Bootstrap
-                <small>August 25, 2014 at 9:30 PM</small>
-              </h4>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum
-              in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
-              felis in faucibus.
-            </div>
           </div>
+    <hr>
 
-        </div>-->
-        </div>
-        <!-- /.row -->
-      </div>
+  </div>
+  <!-- /.row -->
+</div>
