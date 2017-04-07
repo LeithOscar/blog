@@ -27,7 +27,7 @@
     <hr>
 
     <!-- Posted Comments -->
-    <div class="media"  *ngFor="let comment of post.commentsPost">
+    <div class="media"  *ngFor="let comment of post.commentsPost; let i = index">
       <a class="pull-left profileImaget" href="#" >
         <img class="media-objec profileImage" src="./assets/profile.png" alt="">
       </a>
@@ -38,7 +38,7 @@
           {{comment.content}}
       </div>
 
-       <button class="btn btn-defautl buttonComment" (click)="editComment()">edit</button>
+       <button class="btn btn-defautl buttonComment" (click)="editComment(i)">edit</button>
     </div>
     <hr>
 

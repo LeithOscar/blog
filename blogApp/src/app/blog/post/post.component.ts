@@ -15,6 +15,7 @@ export class PostComponent implements OnInit {
   constructor(private mlabService: MLabService, private route: ActivatedRoute) { }
 
   post = {
+    commentsPost:[]
   };
 
   private sub: any;
@@ -27,7 +28,6 @@ export class PostComponent implements OnInit {
 
   }
 
-
   //private methods
   getReadPost() {
     this.sub = this.route.params.subscribe(params => {
@@ -37,15 +37,18 @@ export class PostComponent implements OnInit {
         posts => this.post = this.getItem(posts, this.id),
         error => this.errorMessage = <any>error);
     });
-
-
   }
 
   getItem(items:any, id:any):any {
-
     var results = items.filter(function (obj) { return obj._id.$oid === id; });
-    
     return results[0];
+
+  }
+
+  editComment(index:number){
+
+    let comment = this.post.commentsPost[index];
+
 
   }
 
