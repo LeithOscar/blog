@@ -15,8 +15,11 @@ export class PostComponent implements OnInit {
   constructor(private mlabService: MLabService, private route: ActivatedRoute) { }
 
   post = {
-    commentsPost:[]
+    commentsPost: []
   };
+  editCommentZone = false;
+  editPostZone = false;
+  editCommentArea=""
 
   private sub: any;
   id: any;
@@ -39,17 +42,36 @@ export class PostComponent implements OnInit {
     });
   }
 
-  getItem(items:any, id:any):any {
+  getItem(items: any, id: any): any {
     var results = items.filter(function (obj) { return obj._id.$oid === id; });
     return results[0];
 
   }
 
-  editComment(index:number){
+  editpost() {
+    if (this.post != undefined && this.post != null) {
+      this.editPostZone = true;
+    }
+
+  }
+  closeEditPost() {
+
+    this.editPostZone = false;
+  }
+
+
+  editComment(index: number) {
 
     let comment = this.post.commentsPost[index];
+    if (comment != undefined && comment != null) {
+      this.editCommentArea= comment.content;
+      this.editCommentZone = true;
+    }
 
+  }
+  closeEditComment() {
 
+    this.editCommentZone = false;
   }
 
 }
