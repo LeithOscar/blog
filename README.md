@@ -43,3 +43,9 @@ In tis version we read twio Post and two comment.
 
 ### Next Release 0.0.2
 The user can modify and save the fake data ( Posts & comments)
+
+
+## How to test
+
+Downland source using git clone 
+ng serve builds the application and starts a web server. for more info [ng-serve](https://github.com/angular/angular-cli/wiki/serve)
