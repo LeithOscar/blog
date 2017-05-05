@@ -47,5 +47,5 @@ The user can modify and save the fake data ( Posts & comments)
 
 ## How to test
 
-Downland source using git clone 
+Downland source using git clone.
 ng serve builds the application and starts a web server. for more info [ng-serve](https://github.com/angular/angular-cli/wiki/serve)
