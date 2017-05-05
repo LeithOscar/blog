@@ -34,10 +34,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 I Chossed MLab Hosting [MLab](https://mlab.com/)
 
 
-Release 0.0.1
+## Releases
+
+### Release 0.0.1
 
 Using Fake Data ( Post & Comments)
 In tis version we read twio Post and two comment.
 
-Next Release 0.0.2
-    The user can modify and save the fake data ( Posts & comments)
+### Next Release 0.0.2
+The user can modify and save the fake data ( Posts & comments)
