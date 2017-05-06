@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 export class MLabService {
  apiKey ="?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7";
   urlPosts = "https://api.mlab.com/api/1/databases/blog/collections/posts?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7";
-   urlSavePosts = "https://api.mlab.com/api/1/databases/blog/collections/post/";
+  urlSavePosts = "https://api.mlab.com/api/1/databases/blog/collections/posts/";
   urlLogin = "https://api.mlab.com/api/1/databases/blog/collections/posts?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7";
   urlRegister = "https://api.mlab.com/api/1/databases/blog/collections/posts?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7"
   constructor(private http: Http) {
@@ -25,7 +25,7 @@ export class MLabService {
   }
    public updatePost(post): any {
 
-     this.http.put(this.urlSavePosts +post._id.$oid +  this.apiKey, post).map((data: Response) => data.json() || {})
+     return this.http.put(this.urlSavePosts +post._id.$oid +  this.apiKey, post).map((data: Response) => data.json() || {})
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));;
   }
 

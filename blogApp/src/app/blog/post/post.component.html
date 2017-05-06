@@ -51,7 +51,7 @@
     <div *ngIf="editPostZone" class="well">
       <form role="form">
         <div class="form-group">
-          <textarea class="form-control" rows="3" [(ngModel)]="post.fullContent" [ngModelOptions]="{standalone: true}"></textarea>
+          <textarea class="form-control" rows="3" [(ngModel)]="editCommentArea" [ngModelOptions]="{standalone: true}"></textarea>
         </div>
         <button id="submitPost" type="submit" class="btn btn-primary" (click)="savePost()">save</button>
         <button id="cancelPost" type="submit" class="btn btn-primary" (click)="closeEditPost()">close</button>

@@ -16,7 +16,7 @@ export class PostComponent implements OnInit {
 
   post = {
     commentsPost: [],
-    fullContent:""
+    fullContent: ""
   };
   editCommentZone = false;
   editPostZone = false;
@@ -52,6 +52,7 @@ export class PostComponent implements OnInit {
   editpost() {
     if (this.post != undefined && this.post != null) {
       this.editPostZone = true;
+      this.editCommentArea = this.post.fullContent;
     }
 
   }
@@ -60,10 +61,16 @@ export class PostComponent implements OnInit {
     this.editPostZone = false;
   }
 
-  savePost(){
-    
-        this.mlabService.updatePost(this.post)
+  savePost() {
 
+    this.mlabService.updatePost(this.post).subscribe(
+      posts => this.finishEditionPost(),
+      error => this.errorMessage = <any>error);
+  }
+
+  finishEditionPost() {
+    this.post.fullContent = this.editCommentArea;
+    this.editPostZone = false;
   }
 
   editComment(index: number) {
