@@ -36,7 +36,7 @@ export class BlogComponent implements OnInit {
 
   readPost()
   {
-     //go to read post component by id post
+     //go to read post component by id post // PostComponent
   }
 }
 
