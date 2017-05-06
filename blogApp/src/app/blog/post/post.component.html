@@ -1,8 +1,20 @@
 <div class="row">
+<<<<<<< HEAD
   <!-- Blog Post Content Column -->
   <div class="col-lg-8">
     <!-- Title -->
     <h1>{{post.title}}</h1>
+=======
+
+  <!-- Blog Post Content Column -->
+  <div class="col-lg-8">
+
+    <!-- Blog Post -->
+
+    <!-- Title -->
+    <h1>{{post.title}}</h1>
+
+>>>>>>> a369b8bdd4713f2ad2bb6e825aefda8dc70db696
     <!-- Author -->
     <p class="lead">
       by <a href="#">{{post.autor}}</a>
@@ -11,12 +23,18 @@
     <!-- Date/Time -->
     <p>
       <span class="glyphicon glyphicon-time"></span> Posted on {{post.date}}
+<<<<<<< HEAD
 
     </p>
+=======
+    </p>
+
+>>>>>>> a369b8bdd4713f2ad2bb6e825aefda8dc70db696
     <hr>
     <!-- Post Content -->
     <p class="lead">{{post.content}}
     </p>
+<<<<<<< HEAD
     <button (click)="editPost()">edit</button>
     <button>add comment</button>
     <hr>
@@ -49,6 +67,66 @@
           </div>
 
         </div>-->
+=======
+
+    <button id="editPost" class="btn btn-defautl" (click)="editpost()">edit</button>
+    <hr>
+
+    <!-- Edit post  Form -->
+    <div *ngIf="editPostZone" class="well">
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="3">{{post.content}}</textarea>
+        </div>
+        <button id="submitPost" type="submit" class="btn btn-primary">Submit</button>
+        <button id="cancelPost" type="submit" class="btn btn-primary" (click)="closeEditPost()">Close</button>
+      </form>
+
+    </div>
+
+    <!-- Posted Comments -->
+    <div class="media" *ngFor="let comment of post.commentsPost; let i = index">
+      <a class="pull-left profileImaget" href="#">
+        <img class="media-objec profileImage" src="./assets/profile.png" alt="">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">{{comment.author}}
+          <small>{{comment.date}}</small>
+        </h4>
+        {{comment.content}}
+      </div>
+
+      <button id="editComment + i" class="btn btn-defautl buttonComment" (click)="editComment(i)">edit</button>
+
+    </div>
+
+    <!-- Edit comment  Form -->
+    <hr>
+    <div *ngIf="editCommentZone" class="well">
+      <form role="form">
+        <div class="form-group">
+          <textarea id="editCommentArea" class="form-control" rows="5">{{editCommentArea}}</textarea>
+        </div>
+        <button id="submitComment" type="submit" class="btn btn-primary">Submit</button>
+        <button id="closeComment" type="submit" class="btn btn-primary" (click)="closeEditComment()">Close</button>
+      </form>
+
+    </div>
+
+    <!-- Comments Form -->
+    <hr>
+    <div class="well">
+      <h4>Deja tu comentario:</h4>
+      <form id="formEdited" role="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <hr>
+
+>>>>>>> a369b8bdd4713f2ad2bb6e825aefda8dc70db696
   </div>
   <!-- /.row -->
 </div>

@@ -14,7 +14,13 @@ export class PostComponent implements OnInit {
 
   constructor(private mlabService: MLabService, private route: ActivatedRoute) { }
 
-  post = {};
+  post = {
+    commentsPost: []
+  };
+  editCommentZone = false;
+  editPostZone = false;
+  editCommentArea=""
+
   private sub: any;
   id: any;
   errorMessage = "internal error";
@@ -22,8 +28,8 @@ export class PostComponent implements OnInit {
   ngOnInit() {
 
     this.getReadPost();
-  }
 
+  }
 
   //private methods
   getReadPost() {
@@ -34,16 +40,38 @@ export class PostComponent implements OnInit {
         posts => this.post = this.getItem(posts, this.id),
         error => this.errorMessage = <any>error);
     });
+  }
 
+  getItem(items: any, id: any): any {
+    var results = items.filter(function (obj) { return obj._id.$oid === id; });
+    return results[0];
 
   }
 
-  getItem(items:any, id:any):any {
+  editpost() {
+    if (this.post != undefined && this.post != null) {
+      this.editPostZone = true;
+    }
 
-    var results = items.filter(function (obj) { return obj._id.$oid === id; });
-    
-    return results[0];
+  }
+  closeEditPost() {
 
+    this.editPostZone = false;
+  }
+
+
+  editComment(index: number) {
+
+    let comment = this.post.commentsPost[index];
+    if (comment != undefined && comment != null) {
+      this.editCommentArea= comment.content;
+      this.editCommentZone = true;
+    }
+
+  }
+  closeEditComment() {
+
+    this.editCommentZone = false;
   }
 
 }
