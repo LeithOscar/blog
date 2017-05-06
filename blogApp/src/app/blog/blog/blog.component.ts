@@ -15,10 +15,9 @@ import 'rxjs/Rx';
 export class BlogComponent implements OnInit {
 
   title = "Blog";
-  recentPost = [ ];
+  latestPost = [ ];
 
-  latestPost= [];
-  mode = 'Observable';
+   mode = 'Observable';
   errorMessage: string;
 
   constructor(private mlabService: MLabService) {
@@ -29,7 +28,7 @@ export class BlogComponent implements OnInit {
   getRecentPost() {
     this.mlabService.getAllPost()
       .subscribe(
-      posts => this.recentPost = posts,
+      posts => this.latestPost = posts,
       error => this.errorMessage = <any>error);
   }
 

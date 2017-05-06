@@ -15,11 +15,12 @@ export class PostComponent implements OnInit {
   constructor(private mlabService: MLabService, private route: ActivatedRoute) { }
 
   post = {
-    commentsPost: []
+    commentsPost: [],
+    fullContent:""
   };
   editCommentZone = false;
   editPostZone = false;
-  editCommentArea=""
+  editCommentArea = ""
 
   private sub: any;
   id: any;
@@ -59,13 +60,20 @@ export class PostComponent implements OnInit {
     this.editPostZone = false;
   }
 
+  savePost(){
+    
+        this.mlabService.updatePost(this.post)
+
+  }
 
   editComment(index: number) {
 
-    let comment = this.post.commentsPost[index];
-    if (comment != undefined && comment != null) {
-      this.editCommentArea= comment.content;
-      this.editCommentZone = true;
+    if (this.post != undefined && this.post.commentsPost != undefined) {
+      let comment = this.post.commentsPost[index];
+      if (comment != undefined && comment != null) {
+        this.editCommentArea = comment.content;
+        this.editCommentZone = true;
+      }
     }
 
   }

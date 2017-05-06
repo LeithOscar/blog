@@ -1,10 +1,5 @@
 <div class="row">
 
-  <!-- Blog Post Content Column -->
-  <div class="col-lg-8">
-    <!-- Title -->
-    <h1>{{post.title}}</h1>
-
 
   <!-- Blog Post Content Column -->
   <div class="col-lg-8">
@@ -29,11 +24,8 @@
 
     <hr>
     <!-- Post Content -->
-    <p class="lead">{{post.content}}
+    <p class="lead">{{post.fullContent}}
     </p>
-
-    <button (click)="editPost()">edit</button>
-    <button>add comment</button>
     <hr>
     <!-- Comment 
           <div class="media">
@@ -59,10 +51,10 @@
     <div *ngIf="editPostZone" class="well">
       <form role="form">
         <div class="form-group">
-          <textarea class="form-control" rows="3">{{post.content}}</textarea>
+          <textarea class="form-control" rows="3" [(ngModel)]="post.fullContent" [ngModelOptions]="{standalone: true}"></textarea>
         </div>
-        <button id="submitPost" type="submit" class="btn btn-primary">Submit</button>
-        <button id="cancelPost" type="submit" class="btn btn-primary" (click)="closeEditPost()">Close</button>
+        <button id="submitPost" type="submit" class="btn btn-primary" (click)="savePost()">save</button>
+        <button id="cancelPost" type="submit" class="btn btn-primary" (click)="closeEditPost()">close</button>
       </form>
 
     </div>
@@ -90,8 +82,8 @@
         <div class="form-group">
           <textarea id="editCommentArea" class="form-control" rows="5">{{editCommentArea}}</textarea>
         </div>
-        <button id="submitComment" type="submit" class="btn btn-primary">Submit</button>
-        <button id="closeComment" type="submit" class="btn btn-primary" (click)="closeEditComment()">Close</button>
+        <button id="submitComment" type="submit" class="btn btn-primary">save</button>
+        <button id="closeComment" type="submit" class="btn btn-primary" (click)="closeEditComment()">cancel</button>
       </form>
 
     </div>
