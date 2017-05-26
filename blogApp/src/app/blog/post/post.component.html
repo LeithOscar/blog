@@ -51,7 +51,7 @@
     <div *ngIf="editPostZone" class="well">
       <form role="form">
         <div class="form-group">
-          <textarea class="form-control" rows="3" [(ngModel)]="editCommentArea" [ngModelOptions]="{standalone: true}"></textarea>
+          <textarea class="form-control" rows="3" [(ngModel)]="editPostArea" [ngModelOptions]="{standalone: true}"></textarea>
         </div>
         <button id="submitPost" type="submit" class="btn btn-primary" (click)="savePost()">save</button>
         <button id="cancelPost" type="submit" class="btn btn-primary" (click)="closeEditPost()">close</button>
@@ -80,9 +80,9 @@
     <div *ngIf="editCommentZone" class="well">
       <form role="form">
         <div class="form-group">
-          <textarea id="editCommentArea" class="form-control" rows="5">{{editCommentArea}}</textarea>
+          <textarea id="editCommentArea" class="form-control" rows="5" [(ngModel)]="editCommentArea" [ngModelOptions]="{standalone: true}">{{editCommentArea}}</textarea>
         </div>
-        <button id="submitComment" type="submit" class="btn btn-primary">save</button>
+        <button id="submitComment" type="submit" class="btn btn-primary" (click)="finishEditionComment()">save</button>
         <button id="closeComment" type="submit" class="btn btn-primary" (click)="closeEditComment()">cancel</button>
       </form>
 
@@ -94,9 +94,9 @@
       <h4>Deja tu comentario:</h4>
       <form id="formEdited" role="form">
         <div class="form-group">
-          <textarea class="form-control" rows="3"></textarea>
+          <textarea class="form-control" rows="3" [(ngModel)]="newCommentContent" [ngModelOptions]="{standalone: true}"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="addNewComment()">save</button>
       </form>
     </div>
     <hr>

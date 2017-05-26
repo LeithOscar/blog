@@ -16,14 +16,20 @@ export class PostComponent implements OnInit {
 
   post = {
     commentsPost: [],
-    fullContent: ""
+    fullContent: "",
+    content: ""
   };
-  editCommentZone = false;
-  editPostZone = false;
-  editCommentArea = ""
 
+  editPostZone = false;
+  editPostArea = ""
+
+  editCommentZone = false;
+  editCommentArea = ""
   private sub: any;
   id: any;
+  postId: number;
+
+  newCommentContent = "";
   errorMessage = "internal error";
 
   ngOnInit() {
@@ -49,32 +55,37 @@ export class PostComponent implements OnInit {
 
   }
 
+  /* POST*/
   editpost() {
     if (this.post != undefined && this.post != null) {
       this.editPostZone = true;
-      this.editCommentArea = this.post.fullContent;
+      this.editPostArea = this.post.fullContent;
     }
 
   }
   closeEditPost() {
-
     this.editPostZone = false;
   }
 
   savePost() {
-
-    this.mlabService.updatePost(this.post).subscribe(
-      posts => this.finishEditionPost(),
-      error => this.errorMessage = <any>error);
+    this.post.fullContent = this.editPostArea;
+    this.save();
+    this.closeEditPost();
   }
 
   finishEditionPost() {
-    this.post.fullContent = this.editCommentArea;
+    this.post.fullContent = this.editPostArea;
+    this.post.content = this.editPostArea;
     this.editPostZone = false;
+
   }
 
+
+
+  /* POST COMMENTS*/
   editComment(index: number) {
 
+    this.postId = index;
     if (this.post != undefined && this.post.commentsPost != undefined) {
       let comment = this.post.commentsPost[index];
       if (comment != undefined && comment != null) {
@@ -87,6 +98,36 @@ export class PostComponent implements OnInit {
   closeEditComment() {
 
     this.editCommentZone = false;
+
+  }
+  finishEditionComment() {
+
+    this.post.commentsPost[this.postId].content = this.editCommentArea;
+    this.editCommentZone = false;
+
+    this.save();
   }
 
+
+  /*Add new comments to Post */
+  addNewComment() {
+    let newCommentId = this.post.commentsPost.length + 1;
+    let newItem = {
+      id: newCommentId,
+      content: this.newCommentContent,
+      date: new Date().toJSON().slice(0, 10).replace('/-/g', '/')
+    };
+
+    this.post.commentsPost.push(newItem);
+    this.save();
+
+  }
+
+  /* Commen methods */
+  save() {
+    this.mlabService.updatePost(this.post).subscribe(
+      posts => this.closeEditComment(),
+      error => this.errorMessage = <any>error);
+
+  }
 }
