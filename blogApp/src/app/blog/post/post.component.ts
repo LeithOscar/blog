@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MLabService } from '../../m-lab.service';
+import { MLabService } from '../../services/m-lab.service';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -25,7 +25,6 @@ export class PostComponent implements OnInit {
 
   editCommentZone = false;
   editCommentArea = ""
-  private sub: any;
   id: any;
   postId: number;
 
@@ -40,7 +39,7 @@ export class PostComponent implements OnInit {
 
   //private methods
   getReadPost() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = params['id']; // (+) converts string 'id' to a number
       this.mlabService.getAllPost()
         .subscribe(
