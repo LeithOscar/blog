@@ -7,12 +7,14 @@ import { BlogComponent } from './blog/blog/blog.component';
 import { Routes,RouterModule  } from '@angular/router';
 import { PostComponent } from './blog/post/post.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 const appRoutes: Routes = [
   { path: 'blog',   component: BlogComponent },
   { path: 'post',      component: PostComponent },
-  { path: 'register',      component: RegisterComponent }
+  { path: 'register',      component: RegisterComponent },
+  { path: 'login',      component: LoginComponent }
 ];
 
 
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     BlogComponent,
     PostComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

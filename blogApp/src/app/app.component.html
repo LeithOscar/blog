@@ -13,7 +13,7 @@
 
             <p class="navbar-text">
                 <a *ngIf="userName" href="." class="navbar-link"> <b>{{userName}}</b></a>&nbsp;
-                <a *ngIf="!userName" href="." class="navbar-link"> Login</a>&nbsp;
+                <a *ngIf="!userName" href="." class="navbar-link" routerLink="/login" routerLinkActive="active"> Login</a>&nbsp;
                 <a *ngIf="userName" href="." class="navbar-link" (click)="logout()"> Logout</a>&nbsp;
             </p>
         </div>
@@ -22,7 +22,7 @@
             <ul class="nav navbar-nav">
                 <li><a href=".">Home</a></li>
                 <li><a routerLink="/blog" routerLinkActive="active"> blog</a></li>
-                <li><a routerLink="/register" routerLinkActive="active"> register</a></li>
+                <li><a routerLink="/register" routerLinkActive="active" *ngIf="!userName"> register</a></li>
             </ul>
         </div>
 
