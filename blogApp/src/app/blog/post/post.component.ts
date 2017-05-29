@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MLabService } from '../../services/m-lab.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication.service';
 
 
 
@@ -8,11 +9,11 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css'],
-  providers: [MLabService]
+  providers: [MLabService,AuthenticationService]
 })
 export class PostComponent implements OnInit {
 
-  constructor(private mlabService: MLabService, private route: ActivatedRoute) { }
+  constructor(private mlabService: MLabService, private route: ActivatedRoute,private authentication: AuthenticationService) { }
 
   post = {
     commentsPost: [],
@@ -22,17 +23,16 @@ export class PostComponent implements OnInit {
 
   editPostZone = false;
   editPostArea = ""
-
   editCommentZone = false;
   editCommentArea = ""
   id: any;
   postId: number;
-
+  authenticated:boolean;
   newCommentContent = "";
   errorMessage = "internal error";
 
   ngOnInit() {
-
+    this.autthenticated();
     this.getReadPost();
 
   }
@@ -128,5 +128,10 @@ export class PostComponent implements OnInit {
       posts => this.closeEditComment(),
       error => this.errorMessage = <any>error);
 
+  }
+
+    autthenticated()
+  {
+    this.authenticated=  this.authentication.isLogged()
   }
 }
