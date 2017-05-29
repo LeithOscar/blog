@@ -41,9 +41,16 @@ I Chossed MLab Hosting [MLab](https://mlab.com/)
 Using Fake Data ( Post & Comments)
 In tis version we read twio Post and two comment.
 
-### Next Release 0.0.2
+### Release 0.0.2
 The user can modify and save the fake data ( Posts & comments)
 
+### Release 0.0.3
+Register new user interface and logout.
+Authentication service
+
+### Next Release 0.0.4
+Login service using authentication service to validate.
+The user can edit and remove Post & commments
 
 ## How to test
 

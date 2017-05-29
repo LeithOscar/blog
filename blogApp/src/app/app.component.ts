@@ -1,16 +1,29 @@
 import { Component } from '@angular/core';
+
 import { RouterModule, Routes } from '@angular/router';
+
+import { AuthenticationService } from './services/authentication.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [AuthenticationService]
 })
 export class AppComponent {
 
   title = 'Welcome to Newpol connect!';
+  userName = ""
+  constructor(private authentication: AuthenticationService) {
 
-  constructor() {
+    if (authentication.isLogged()) {
+      this.userName = localStorage.getItem('currentUser');
+    }
+  }
+
+  logout() { 
+    this.authentication.logout();
   }
 }
 

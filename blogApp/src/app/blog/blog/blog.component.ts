@@ -1,7 +1,8 @@
 //imports use other modules
 import { Component, OnInit } from '@angular/core';
-import { MLabService } from '../../m-lab.service';
-//import { RouterModule, Routes } from '@angular/router';
+import { MLabService } from '../../services/m-lab.service';
+import { RouterModule, Routes } from '@angular/router';
+
 import 'rxjs/Rx';
 //metadata, describe the component
 @Component({

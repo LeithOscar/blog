@@ -1,32 +1,33 @@
 <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-          
-        <div class="navbar-header pull-left">     
-          <a class="navbar-brand" href="."></a>
+    <div class="container">
+
+        <div class="navbar-header pull-left">
+            <a class="navbar-brand" href="."></a>
         </div>
         <div class="navbar-header pull-right">
-           <button type="button" class="navbar-toggle" 
-                  data-toggle="collapse" data-target=".navbar-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            
-          <p class="navbar-text">
-            <b> '.$username.' </b>
-            <a href="." class="navbar-link">Logout</a>&nbsp;
-          </p>  
+
+            <p class="navbar-text">
+                <a *ngIf="userName" href="." class="navbar-link"> <b>{{userName}}</b></a>&nbsp;
+                <a *ngIf="!userName" href="." class="navbar-link" routerLink="/login" routerLinkActive="active"> Login</a>&nbsp;
+                <a *ngIf="userName" href="." class="navbar-link" (click)="logout()"> Logout</a>&nbsp;
+            </p>
         </div>
-          
+
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li ><a href=".">Home</a></li>
-            <li><a routerLink="/blog" routerLinkActive="active"> blog</a></li>
-          </ul>
+            <ul class="nav navbar-nav">
+                <li><a href=".">Home</a></li>
+                <li><a routerLink="/blog" routerLinkActive="active"> blog</a></li>
+                <li><a routerLink="/register" routerLinkActive="active" *ngIf="!userName"> register</a></li>
+            </ul>
         </div>
 
     </div>
-  </div>
+</div>
 
 
 
@@ -37,8 +38,8 @@
 <div class="container">
     <div class="container">
         <div class="jumbotron">
-            <h1>Code Source</h1>
-            <p>CodeSource is the most popular place for developers from Woltters Kluwer, we would like to share our experiencies
+            <h1>Try&Catch</h1>
+            <p>Try&Catch is the most popular place for developers from Wolters Kluwer, we would like to share our experiencies
                 about our projects on the web.</p>
         </div>
     </div>
