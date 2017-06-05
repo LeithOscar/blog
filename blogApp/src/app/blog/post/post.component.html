@@ -44,8 +44,7 @@
 
         </div>-->
 
-    <button id="editPost" class="btn btn-defautl" (click)="editpost()">edit</button>
-    <hr>
+    <button *ngIf="authenticated" id="editPost" class="btn btn-defautl" (click)="editpost()">edit</button>
 
     <!-- Edit post  Form -->
     <div *ngIf="editPostZone" class="well">
@@ -71,12 +70,12 @@
         {{comment.content}}
       </div>
 
-      <button id="editComment + i" class="btn btn-defautl buttonComment" (click)="editComment(i)">edit</button>
-
+      <button *ngIf="authenticated" id="editComment + i" class="btn btn-defautl buttonComment" (click)="editComment(i)">edit</button>
+      <hr>
     </div>
 
     <!-- Edit comment  Form -->
-    <hr>
+
     <div *ngIf="editCommentZone" class="well">
       <form role="form">
         <div class="form-group">
@@ -90,7 +89,7 @@
 
     <!-- Comments Form -->
     <hr>
-    <div class="well">
+    <div [hidden]="!authenticated" class="well">
       <h4>Deja tu comentario:</h4>
       <form id="formEdited" role="form">
         <div class="form-group">
@@ -99,9 +98,6 @@
         <button type="submit" class="btn btn-primary" (click)="addNewComment()">save</button>
       </form>
     </div>
-    <hr>
-
-
   </div>
   <!-- /.row -->
 </div>
