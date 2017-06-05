@@ -12,8 +12,8 @@ export class UserService {
     //         return this.http.get('https://api.mlab.com/api/1/databases/blog/collections/users?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7', this.jwt()).map((response: Response) => response.json());
     //     }
 
-       public  getById(id: number) {
-            return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+       public  getById(model: any) {
+            return this.http.get('https://api.mlab.com/api/1/databases/blog/collections/users?apiKey=v3R_p4kQqCuw7kT-M1aCiTZ88k8zPlf7' + model, this.jwt()).map((response: Response) => response.json());
         }
 
     public create(user: User) {
